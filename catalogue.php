@@ -35,19 +35,24 @@
         <?php 
             // array contenant tout les articles 
             $AllArticles = [ 
-                ['nom'=> 'bonnet',
-                'prix' => '10 euros',
-                'photo' => 'https://zupimages.net/up/20/49/uxsr.jpg'],
+                [
+                    'nom'=> 'bonnet',
+                    'prix' => '10 euros',
+                    'photo' => 'https://zupimages.net/up/20/49/uxsr.jpg'
+                ],
                 
 
-                ['nom'=> 'gant', 
-                'prix' => '5 euros',
-                'photo' => 'https://zupimages.net/up/20/49/5isr.jpg',
-],
-
-                ['nom'=> 'bottes',
-                'prix'=> '20 euros',  
-                'photo' => 'https://zupimages.net/up/20/49/06jz.jpg'],
+                [
+                    'nom'=> 'gant', 
+                    'prix' => '5 euros',
+                    'photo' => 'https://zupimages.net/up/20/49/5isr.jpg',
+                ],
+                
+                [
+                    'nom'=> 'bottes',
+                    'prix'=> '20 euros',  
+                    'photo' => 'https://zupimages.net/up/20/49/06jz.jpg'
+                ],
             ];
 
             // Appel des fonctions
@@ -61,7 +66,7 @@
             
             foreach ($AllArticles as $article){
                 echo '<pre>';
-                displayItem (article['nom'], $article['prix'],$article ['photo']);
+                displayItem ($article['nom'], $article['prix'],$article ['photo']);
                 //echo '<p>'.$article['nom'].' vaut '.$article['prix']. ' voici la photo ' .$article ['photo'];
                 echo '</pre>';
                 echo '<img src =' . $article ['photo'] .' >';
