@@ -62,9 +62,10 @@
                 displayItem3();
                 displayItem('bonnet', 10, 'https://zupimages.net/up/20/49/uxsr.jpg'); 
             */
-            
+
             // boucle pour afficher les articles du catalogue
-            
+                include("functions.php");
+  
             foreach ($AllArticles as $article){
                 echo '<pre>';
                 displayItem ($article['nom'], $article['prix'],$article ['photo']);

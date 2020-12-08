@@ -22,24 +22,68 @@
     
         <!-- debut corps -->
 
-        <pre>GET : <?php var_dump($_GET); ?></pre><!-- les donnees transiteront par l'URL -->
-        <hr>
-        <pre>POST : <?php var_dump($_POST); ?></pre><!-- methode qui permet d'envoyer autant de donnees que l'on veut -->
+        <?php
+            var_dump ($_POST);
 
+            $testNom = false;
+            $testPrix = false;
+            $testPhoto = false;
+            $afficheTextNom = null;
+            $afficheTextPrix = null;
+            $afficheTextPhoto = null;
+
+            // Tester si le champs est valide
+            if(!isset($_POST['nom']) || $_POST ['nom'] == '') {
+                $afficheTextNom = "Vous n'avez pas saisi le nom";
+            }else {
+                $testNom = true; 
+            }
+            
+            // Tester si le champs est valide
+            if(!isset($_POST['prix']) || $_POST ['prix'] == '') {
+                $afficheTextPrix = "Vous n'avez pas saisi le prix";
+            }else {
+                if( is_int( $_POST ['prix'] ) && $_POST ['prix'] > 0 ) {
+                    $testPrix = true;   
+                }
+                else {
+                    $afficheTextPrix = "Mettre un nombre entier positif";
+                } 
+            }
+            // Tester si le champs est valide
+            if(!isset($_POST['photo']) || $_POST ['photo'] == '') {
+                $afficheTextPhoto = "Vous n'avez pas saisi la photo";
+            }else {
+                $testPhoto = true; 
+            }
+            // Si tout les champs sont vrais
+            if ($testNom == true && $testPhoto == true && $testPrix == true) {
+                header('Location: http://localhost/testtuto/essaiphpsolo/displayItem.php?nom=' . $_POST['nom'] . '&prix=' .$_POST['prix'] . '&photo=' .$_POST['photo']);
+                exit;
+            }
+
+        ?>
         
-        <form action= "displayItem.php" method="post"><!-- on crée l'enveloppe du formulaire -->
+        <form action= "addItem.php" method="post"><!-- on crée l'enveloppe du formulaire -->
             <p>Veuillez taper le nom de l'article :</p>
                 <p>
-                    <label for="nom">Nom:</label>
-                    <input type="text" name="nom" id="nom" required />
+                    <label >Nom:</label>
+                    <input type="text" name="nom" />
+                    <?= $afficheTextNom 
+                    ?>
                 </p>
+                
                 <p>
                     <label for="prix"> Prix :</label>
-                    <input type="text" name="prix" id="prix" required />
+                    <input type="text" name="prix" id="prix"/>
+                    <?= $afficheTextPrix 
+                    ?>
                 </p>
                 <p>
-                    <label for="photo">Photo :</label>
-                    <input type="photo" name="photo" id="photo" required />
+                    <label for="photo">Url photo :</label>
+                    <input type="photo" name="photo" id="photo"/>
+                    <?= $afficheTextPhoto 
+                    ?>
                 </p>
             
             <input type="submit" value="Valider" /> 
