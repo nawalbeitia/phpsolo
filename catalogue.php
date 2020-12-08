@@ -55,12 +55,13 @@
                 ],
             ];
 
-            // Appel des fonctions
+            /* Appel des fonctions
                 include "functions.php";
                 displayItem1();
                 displayItem2();
                 displayItem3();
                 displayItem('bonnet', 10, 'https://zupimages.net/up/20/49/uxsr.jpg'); 
+            */
             
             // boucle pour afficher les articles du catalogue
             

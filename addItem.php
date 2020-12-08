@@ -26,14 +26,23 @@
         <hr>
         <pre>POST : <?php var_dump($_POST); ?></pre><!-- methode qui permet d'envoyer autant de donnees que l'on veut -->
 
-
+        
         <form action= "displayItem.php" method="post"><!-- on crée l'enveloppe du formulaire -->
             <p>Veuillez taper le nom de l'article :</p>
                 <p>
-                    <input type="text" name="article" />
-                    <input type="submit" value="Valider" />
+                    <label for="nom">Nom:</label>
+                    <input type="text" name="nom" id="nom" required />
                 </p>
-            </p>  
+                <p>
+                    <label for="prix"> Prix :</label>
+                    <input type="text" name="prix" id="prix" required />
+                </p>
+                <p>
+                    <label for="photo">Photo :</label>
+                    <input type="photo" name="photo" id="photo" required />
+                </p>
+            
+            <input type="submit" value="Valider" /> 
         </form>
 
         <!-- fin  corps -->
